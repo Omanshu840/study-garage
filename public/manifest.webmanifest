@@ -1,0 +1,31 @@
+{
+  "name": "Study Garage",
+  "short_name": "Study Garage",
+  "description": "A study companion for learning, quizzes, flashcards, and visualizations.",
+  "start_url": "/study-garage/",
+  "scope": "/study-garage/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    {
+      "src": "/study-garage/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/study-garage/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/study-garage/Study-Garage-Logo.jpg",
+      "sizes": "612x612",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
