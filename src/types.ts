@@ -153,6 +153,14 @@ export interface Subject {
 
 export type SubjectData = Subject;
 
+export interface SubjectLink {
+  subjectLink: string;
+}
+
+export interface SubjectManifest {
+  subjects: SubjectLink[];
+}
+
 export interface StudyData {
   subjects: Subject[];
 }

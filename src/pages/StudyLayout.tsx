@@ -1,10 +1,11 @@
 import { useLocation, useParams } from "react-router-dom";
 import { Layout } from "../components/Layout";
-import { getChapter, getSubject } from "../data/helpers";
+import { useStudyData } from "../data/helpers";
 
 export function StudyLayout() {
   const { subjectId, chapterId } = useParams();
   const location = useLocation();
+  const { getSubject, getChapter } = useStudyData();
 
   let title = "Study Dashboard";
   let subtitle = "Choose a subject to begin a focused learning session.";

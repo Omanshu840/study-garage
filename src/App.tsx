@@ -8,7 +8,7 @@ import { FlashcardsPage } from "./pages/FlashcardsPage";
 import { QuizPage } from "./pages/QuizPage";
 import { NotFound } from "./pages/NotFound";
 import { StudyLayout } from "./pages/StudyLayout";
-import { getChapter, getSubject } from "./data/helpers";
+import { useStudyData } from "./data/helpers";
 
 type Breadcrumb = {
   label: string;
@@ -25,6 +25,7 @@ const modeLabels: Record<string, string> = {
 function BreadcrumbsOutlet() {
   const { subjectId, chapterId } = useParams();
   const location = useLocation();
+  const { getSubject, getChapter } = useStudyData();
 
   const crumbs: Breadcrumb[] = [{ label: "Home", to: "/" }];
   const subject = subjectId ? getSubject(subjectId) : null;

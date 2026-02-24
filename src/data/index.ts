@@ -1,4 +1,4 @@
 import raw from "./subjects.json";
-import { StudyData } from "../types";
+import { SubjectManifest } from "../types";
 
-export const studyData = raw as StudyData;
+export const subjectManifest = raw as SubjectManifest;

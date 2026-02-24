@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { getChapter, getSubject } from "../data/helpers";
+import { useStudyData } from "../data/helpers";
 import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
 
@@ -12,8 +12,25 @@ const modes = [
 
 export function ChapterOverview() {
   const { subjectId, chapterId } = useParams();
+  const { getSubject, getChapter, isLoading, error } = useStudyData();
   const subject = subjectId ? getSubject(subjectId) : null;
   const chapter = subjectId && chapterId ? getChapter(subjectId, chapterId) : null;
+
+  if (isLoading) {
+    return (
+      <Card>
+        <p className="text-sm">Loading chapter...</p>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card>
+        <p className="text-sm">Unable to load chapter. {error}</p>
+      </Card>
+    );
+  }
 
   if (!subject || !chapter) {
     return (

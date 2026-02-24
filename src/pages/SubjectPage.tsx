@@ -1,11 +1,28 @@
 import { useParams } from "react-router-dom";
 import { ChapterList } from "../components/ChapterList";
-import { getSubject } from "../data/helpers";
+import { useStudyData } from "../data/helpers";
 import { Card } from "../components/ui/card";
 
 export function SubjectPage() {
   const { subjectId } = useParams();
+  const { getSubject, isLoading, error } = useStudyData();
   const subject = subjectId ? getSubject(subjectId) : null;
+
+  if (isLoading) {
+    return (
+      <Card>
+        <p className="text-sm">Loading subject...</p>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card>
+        <p className="text-sm">Unable to load subject. {error}</p>
+      </Card>
+    );
+  }
 
   if (!subject) {
     return (

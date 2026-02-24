@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "homepage": "https://omanshu840.github.io/movieflix",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:pages": "npm run build && cp dist/index.html dist/404.html",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -25,6 +28,7 @@
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.2",
     "vite": "^5.1.4",
-    "@vitejs/plugin-react": "^4.2.1"
+    "@vitejs/plugin-react": "^4.2.1",
+    "gh-pages": "^6.1.1"
   }
 }

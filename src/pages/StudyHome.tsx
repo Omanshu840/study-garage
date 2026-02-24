@@ -1,8 +1,25 @@
 import { SubjectCard } from "../components/SubjectCard";
-import { getSubjects } from "../data/helpers";
+import { Card } from "../components/ui/card";
+import { useStudyData } from "../data/helpers";
 
 export function StudyHome() {
-  const subjects = getSubjects();
+  const { subjects, isLoading, error } = useStudyData();
+
+  if (isLoading) {
+    return (
+      <Card>
+        <p className="text-sm">Loading subjects...</p>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card>
+        <p className="text-sm">Unable to load subjects. {error}</p>
+      </Card>
+    );
+  }
 
   return (
     <div className="space-y-6">
